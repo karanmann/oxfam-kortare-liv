@@ -47,8 +47,7 @@ export default {
   align-items: center;
 
   .accordion_main {
-    width: 90%;
-    max-width: 330px;
+    max-width: 320px;
   }
   .accordion_header {
     font-family: $font-prim;
@@ -61,18 +60,18 @@ export default {
     max-width: 95%;
     font-family: $font-sec;
     line-height: 18px;
-    margin: 0px auto 15px;
+    margin: 2px 0 12px;
   }
 }
 @media screen and (min-width: $laptopSmall) {
   .accordions_container {
     flex-direction: row;
-    max-width: 770px;
+    max-width: 800px;
     display: flex;
     margin: 0 auto;
     justify-content: center;
     align-items: flex-start;
-    gap: 8px;
+    gap: 10px;
 
     .accordion_header {
       font-family: $font-prim;
@@ -80,17 +79,21 @@ export default {
       line-height: 26px;
     }
     .accordion_body {
-      max-width: 95%;
+      max-width: 100%;
       font-family: $font-sec;
+      text-align: left;
       font-size: 15px;
       line-height: 20px;
-      margin: 8px 0 10px 10px;
+      box-sizing: none;
+      margin: 6px 0 12px;
     }
     .accordion_main {
-      padding-left: 20px;
+      max-width: 320px;
     }
+
     .accordion_main:nth-of-type(2) {
       border-left: 1px solid black;
+      padding-left: 20px;
     }
   }
 }

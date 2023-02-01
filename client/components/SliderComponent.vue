@@ -8,7 +8,7 @@
           </button>
           <h1>{{ cards[0].number }}</h1>
           <h2>{{ cards[0].title }}</h2>
-          <img class="card_image" :src="cards[0].url_large" :alt="cards[0].plural" loading="lazy">
+          <img class="card_image" :src="cards[0].url_large" :alt="cards[0].plural">
         </div>
         <div class="card_container_bottom">
           <div class="card_container_bottom_good">
@@ -29,7 +29,7 @@
           </button>
           <h1>{{ cards[1].number }}</h1>
           <h2>{{ cards[1].title }}</h2>
-          <img class="card_image" :src="cards[1].url_large" :alt="cards[1].plural" loading="lazy">
+          <img class="card_image" :src="cards[1].url_large" :alt="cards[1].plural">
         </div>
         <div class="card_container_bottom">
           <div class="card_container_bottom_good">
@@ -50,7 +50,7 @@
           </button>
           <h1>{{ cards[2].number }}</h1>
           <h2>{{ cards[2].title }}</h2>
-          <img class="card_image" :src="cards[2].url_large" :alt="cards[2].plural" loading="lazy">
+          <img class="card_image" :src="cards[2].url_large" :alt="cards[2].plural">
         </div>
         <div class="card_container_bottom">
           <div class="card_container_bottom_good">
@@ -71,7 +71,7 @@
           </button>
           <h1>{{ cards[3].number }}</h1>
           <h2>{{ cards[3].title }}</h2>
-          <img class="card_image" :src="cards[3].url_large" :alt="cards[3].plural" loading="lazy">
+          <img class="card_image" :src="cards[3].url_large" :alt="cards[3].plural">
         </div>
         <div class="card_container_bottom">
           <div class="card_container_bottom_good">
@@ -92,7 +92,7 @@
           </button>
           <h1>{{ cards[4].number }}</h1>
           <h2>{{ cards[4].title }}</h2>
-          <img class="card_image" :src="cards[4].url_large" :alt="cards[4].plural" loading="lazy">
+          <img class="card_image" :src="cards[4].url_large" :alt="cards[4].plural">
         </div>
         <div class="card_container_bottom">
           <div class="card_container_bottom_good">
@@ -113,7 +113,7 @@
           </button>
           <h1>{{ cards[5].number }}</h1>
           <h2>{{ cards[5].title }}</h2>
-          <img class="card_image" :src="cards[5].url_large" :alt="cards[5].plural" loading="lazy">
+          <img class="card_image" :src="cards[5].url_large" :alt="cards[5].plural">
         </div>
         <div class="card_container_bottom">
           <div class="card_container_bottom_good">
@@ -134,7 +134,7 @@
           </button>
           <h1>{{ cards[6].number }}</h1>
           <h2>{{ cards[6].title }}</h2>
-          <img class="card_image" :src="cards[6].url_large" :alt="cards[6].plural" loading="lazy">
+          <img class="card_image" :src="cards[6].url_large" :alt="cards[6].plural">
         </div>
         <div class="card_container_bottom">
           <div class="card_container_bottom_good">
@@ -155,7 +155,7 @@
           </button>
           <h1>{{ cards[7].number }}</h1>
           <h2>{{ cards[7].title }}</h2>
-          <img class="card_image" :src="cards[7].url_large" :alt="cards[7].plural" loading="lazy">
+          <img class="card_image" :src="cards[7].url_large" :alt="cards[7].plural">
         </div>
         <div class="card_container_bottom">
           <div class="card_container_bottom_good">
@@ -176,7 +176,7 @@
           </button>
           <h1>{{ cards[8].number }}</h1>
           <h2>{{ cards[8].title }}</h2>
-          <img class="card_image" :src="cards[8].url_large" :alt="cards[8].plural" loading="lazy">
+          <img class="card_image" :src="cards[8].url_large" :alt="cards[8].plural" @click.stop>
         </div>
         <div class="card_container_bottom">
           <div class="card_container_bottom_good">
@@ -192,10 +192,10 @@
       </div>
     </VueSlickCarousel>
     <button class="button_prev" @click="showPrev">
-      <img src="../assets/directions/chevron-left-90.png" alt="" class="button_prev_img">
+      <img src="assets/images/directions/chevron-left-90.png" alt="" class="button_prev_img">
     </button>
     <button class="button_next" @click="showNext">
-      <img src="../assets/directions/chevron-right-90.png" alt="" class="button_next_img">
+      <img src="assets/images/directions/chevron-right-90.png" alt="" class="button_next_img">
     </button>
   </div>
 </template>
@@ -457,7 +457,7 @@ export default {
   @media screen and (min-width: $laptopSmall) {
     .desktop-divider {
       width: 1px;
-      height: 200px;
+      height: auto;
       background-color: black;
     }
     .carousel-container {
@@ -505,8 +505,15 @@ export default {
 
             img {
               display: block;
-              height: 300px;
-              content-visibility: auto;
+              height: 205px;
+              width: 450px;
+              object-fit: cover;
+              user-drag: none;
+              -webkit-user-drag: none;
+              user-select: none;
+              -moz-user-select: none;
+              -webkit-user-select: none;
+              -ms-user-select: none;
             }
             .close{
               position: absolute;
@@ -525,23 +532,24 @@ export default {
             margin-top: 50px;
             display: flex;
             flex-direction: row;
-            align-items: flex-start;
+            // align-items: flex-start;
             justify-content: space-evenly;
-            margin-bottom: 1rem;
+            // margin-bottom: 1rem;
             .card_container_bottom_bad {
               max-width: 195px;
-              margin-top: 5px;
+              // margin-top: 5px;
             }
             .card_container_bottom_good {
               // margin-right: 1rem;
               max-width: 195px;
-              margin-top: 5px;
+              // margin-top: 5px;
             }
             .card_container_bottom_bad,
             .card_container_bottom_good {
               p {
                 font-size: 14px;
                 margin-top: 5px;
+                margin-bottom: 0px;
               }
               h5 {
                 font-size: 24px;

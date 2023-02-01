@@ -5,10 +5,9 @@
       <div class="footer_flex-item">
         <a :href="$t('footer_insamlingskontroll')" target="_blank">
           <img
-            src="../assets/logos/insamlingskontroll_logga.svg"
+            src="assets/images/logos/insamlingskontroll_logga.svg"
             alt="konto-logo"
             class="footer_logo"
-            loading="lazy"
           >
         </a>
       </div>
@@ -17,17 +16,17 @@
         <div class="footer_flex-item--middle">
           <p class="footer_item footer_item-text footer_item-fixedwidth">
             {{ $t("footer_gifts") }}
-            <a :href="$t('footer_gifts_link')" target="_blank">{{ $t("footer_read_more") }}</a>
+            <a :href="$t('footer_gifts_link')" target="_blank" class="bold">{{ $t("footer_read_more") }}</a>
           </p>
         </div>
       </div>
 
       <div id="grid-item3" class="footer_flex-item">
         <div class="footer_item-socials">
-          <a :href="$t('social_fb')" target="_blank"><img src="../assets/logos/facebook-square.svg" alt="facebook" class="socials_logo" loading="lazy"></a>
-          <a :href="$t('social_tw')" target="_blank"><img src="../assets/logos/twitter-square.svg" alt="twitter" class="socials_logo" loading="lazy"></a>
-          <a :href="$t('social_yt')" target="_blank"><img src="../assets/logos/youtube-square.svg" alt="you-tube" class="socials_logo" loading="lazy"></a>
-          <a :href="$t('social_ig')" target="_blank"><img src="../assets/logos/instagram.svg" alt="instagram" class="socials_logo" loading="lazy"></a>
+          <a :href="$t('social_fb')" target="_blank"><img src="assets/images/logos/facebook-square.svg" alt="facebook" class="socials_logo"></a>
+          <a :href="$t('social_tw')" target="_blank"><img src="assets/images/logos/twitter-square.svg" alt="twitter" class="socials_logo"></a>
+          <a :href="$t('social_yt')" target="_blank"><img src="assets/images/logos/youtube-square.svg" alt="you-tube" class="socials_logo"></a>
+          <a :href="$t('social_ig')" target="_blank"><img src="assets/images/logos/instagram.svg" alt="instagram" class="socials_logo"></a>
         </div>
         <p id="follow-us">
           Följ oss!
@@ -42,11 +41,15 @@
           {{ $t("footer_bankgiro") }}
         </p>
         <p class="footer_item-swish desktop-lineheight footer_item-text">
-          Swish: <span style="text-style:underline;font-size:inherit">900 37 24</span><br class="hide-br">
+          Swish: <span style="text-style:underline;font-size:inherit"><a
+            :href="$t('footer_swish_link')"
+            target="_blank"
+          >900 37 24</a></span>
+          <br class="hide-br">
           <a
             :href="$t('footer_swish_link')"
             target="_blank"
-            class="desktop-reverse-lineheight"
+            class="desktop-reverse-lineheight bold"
           >
             {{ $t("footer_swish_cta") }}
           </a>
@@ -58,10 +61,10 @@
           :href="externalLinks[0].href"
           :target="externalLinks[0].target"
         >
-          <h4>{{ externalLinks[0].label }}</h4>
+          <h4 class="bold">{{ externalLinks[0].label }}</h4>
         </a>
         <a :href="$t('footer_piipolicy_link')" target="_blank">
-          <h4>{{ $t("footer_piipolicy") }}</h4>
+          <h4 class="bold">{{ $t("footer_piipolicy") }}</h4>
         </a>
       </div>
 
@@ -73,10 +76,10 @@
           {{ $t("footer_phone") }}
         </p>
         <a href="mailto:info@oxfam.se">
-          <h4 class="footer_item-lineheight--L">{{ $t("footer_email") }}</h4>
+          <h4 class="footer_item-lineheight--L bold">{{ $t("footer_email") }}</h4>
         </a>
         <a :href="$t('footer_newsletter_link')" target="_blank">
-          <h4 class="footer_item-lineheight--XL">{{ $t("footer_newsletter_header") }}</h4>
+          <h4 class="footer_item-lineheight--XL bold">{{ $t("footer_newsletter_header") }}</h4>
         </a>
       </div>
     </div>
@@ -125,9 +128,12 @@ export default {
 
 a {
   text-decoration: underline;
-  font-weight: $bold;
   line-height: 20px;
   font-size: 11px;
+}
+
+.bold {
+  font-weight: $bold;
 }
 
 h4 {
@@ -225,7 +231,7 @@ h4 {
     line-height: 24px;
   }
   .footer_item-lineheight--XL {
-    line-height: 32px;
+    line-height: 30px;
   }
   .desktop-reverse-lineheight {
     display: block;

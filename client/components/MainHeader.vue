@@ -34,7 +34,7 @@ header {
 
 .landing_body_mobile {
   text-align: left;
-  max-width: 311px;
+  max-width: 320px;
   margin-top: 10px;
   font-size: 18px;
   font-family: $font-sec;

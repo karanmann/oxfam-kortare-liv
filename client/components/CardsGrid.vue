@@ -1,29 +1,36 @@
 <template>
-  <div class="grid_container">
+  <div class="grid_container" @keydown.esc="close()">
     <div class="cards_container">
-      <div v-for="(card, index) in cards" :key="index">
+      <div v-for="(card, index) in cards" :key="index" class="odd">
         <div class="card" @click="open(card)">
           <div class="card_text_container">
             <h2>{{ card.title }}</h2>
             <h3>{{ card.number }}</h3>
           </div>
           <div class="img_container" :style="card.background">
-            <img :src="card.url_small" :alt="index" loading="lazy">
+            <picture>
+              <source media="(min-width:600px)" :srcset="card.url_square">
+              <source media="(min-width:200px)" :srcset="card.url_small">
+              <img :src="card.url_square_jpg" :alt="index">
+            </picture>
           </div>
         </div>
       </div>
     </div>
     <div class="modal-vue">
-      <div v-if="showModal" class="overlay" @click="close()">
-        <div v-if="showModal" class="modal" @click.stop>
-          <SliderComponent :inumber="cardSelected.id" @close-card="close" />
+      <transition name="fade">
+        <div v-if="showModal" class="overlay" @click="close()" @keydown.esc="close()">
+          <div v-if="showModal" class="modal" @click.stop>
+            <SliderComponent :inumber="cardSelected.id" @close-card="close" />
+          </div>
         </div>
-      </div>
+      </transition>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'CardsGrid',
   data () {
@@ -36,6 +43,8 @@ export default {
         plural: this.$t('fruit_1_plural'),
         url_large: 'assets/images/big_fruits/tomaten.jpg',
         url_small: 'assets/images/big_fruits/tomaten.webp',
+        url_square: 'assets/images/big_fruits/tomaten_square.jpg',
+        url_square_jpg: 'assets/images/big_fruits/tomaten_small.jpg',
         background: '#8D1614',
         good: this.$t('fruit_1_good'),
         bad: this.$t('fruit_1_bad')
@@ -46,6 +55,8 @@ export default {
         plural: this.$t('fruit_2_plural'),
         url_large: 'assets/images/big_fruits/citronen.jpg',
         url_small: 'assets/images/big_fruits/citronen.webp',
+        url_square: 'assets/images/big_fruits/citronen_square.jpg',
+        url_square_jpg: 'assets/images/big_fruits/citronen_small.jpg',
         background: '#E79000',
         good: this.$t('fruit_2_good'),
         bad: this.$t('fruit_2_bad')
@@ -56,6 +67,8 @@ export default {
         plural: this.$t('fruit_3_plural'),
         url_large: 'assets/images/big_fruits/avocadon.jpg',
         url_small: 'assets/images/big_fruits/avocadon.webp',
+        url_square: 'assets/images/big_fruits/avocadon_square.jpg',
+        url_square_jpg: 'assets/images/big_fruits/avocadon_small.jpg',
         background: '#5F6805',
         good: this.$t('fruit_3_good'),
         bad: this.$t('fruit_3_bad')
@@ -66,6 +79,8 @@ export default {
         plural: this.$t('fruit_4_plural'),
         url_large: 'assets/images/big_fruits/bananen.jpg',
         url_small: 'assets/images/big_fruits/bananen.webp',
+        url_square: 'assets/images/big_fruits/bananen_square.jpg',
+        url_square_jpg: 'assets/images/big_fruits/bananen_small.jpg',
         background: '#5F6805',
         good: this.$t('fruit_4_good'),
         bad: this.$t('fruit_4_bad')
@@ -76,6 +91,8 @@ export default {
         plural: this.$t('fruit_5_plural'),
         url_large: 'assets/images/big_fruits/mangon.jpg',
         url_small: 'assets/images/big_fruits/mangon.webp',
+        url_square: 'assets/images/big_fruits/mangon_square.jpg',
+        url_square_jpg: 'assets/images/big_fruits/mangon_small.jpg',
         background: '#8D1614',
         good: this.$t('fruit_5_good'),
         bad: this.$t('fruit_5_bad')
@@ -86,6 +103,8 @@ export default {
         plural: this.$t('fruit_6_plural'),
         url_large: 'assets/images/big_fruits/grapefrukten.jpg',
         url_small: 'assets/images/big_fruits/grapefrukten.webp',
+        url_square: 'assets/images/big_fruits/grapefrukten_square.jpg',
+        url_square_jpg: 'assets/images/big_fruits/grapefrukten_small.jpg',
         background: '#E79000',
         good: this.$t('fruit_6_good'),
         bad: this.$t('fruit_6_bad')
@@ -96,6 +115,8 @@ export default {
         plural: this.$t('fruit_8_plural'),
         url_large: 'assets/images/big_fruits/apelsinen.jpg',
         url_small: 'assets/images/big_fruits/apelsinen.webp',
+        url_square: 'assets/images/big_fruits/apelsinen_square.jpg',
+        url_square_jpg: 'assets/images/big_fruits/apelsinen_small.jpg',
         background: '#E79000',
         good: this.$t('fruit_8_good'),
         bad: this.$t('fruit_8_bad')
@@ -106,6 +127,8 @@ export default {
         plural: this.$t('fruit_7_plural'),
         url_large: 'assets/images/big_fruits/melonen.jpg',
         url_small: 'assets/images/big_fruits/melonen.webp',
+        url_square: 'assets/images/big_fruits/melonen_square.jpg',
+        url_square_jpg: 'assets/images/big_fruits/melonen_small.jpg',
         background: '#5F6805',
         good: this.$t('fruit_7_good'),
         bad: this.$t('fruit_7_bad')
@@ -116,6 +139,8 @@ export default {
         plural: this.$t('fruit_9_plural'),
         url_large: 'assets/images/big_fruits/jordgubben.jpg',
         url_small: 'assets/images/big_fruits/jordgubben.webp',
+        url_square: 'assets/images/big_fruits/jordgubben_square.jpg',
+        url_square_jpg: 'assets/images/big_fruits/jordgubben_small.jpg',
         background: '#8D1614',
         good: this.$t('fruit_9_good'),
         bad: this.$t('fruit_9_bad')
@@ -140,11 +165,53 @@ export default {
 <style lang="scss" scoped>
 @import "~@/styles/_variables";
 
+//Slide Fade
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+// FADE
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 .grid_container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   margin: 1.2rem 0;
+}
+
+// Bounce
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .modal-vue {
@@ -159,7 +226,7 @@ export default {
 
   .modal {
     position: relative;
-    top: 300px;
+    top: 250px;
     height: 310px;
     width: 310px;
     z-index: 9999;
@@ -210,7 +277,64 @@ export default {
 
 .card:hover {
   transition: .5s;
-  rotate: 2deg;
+  transform: scale(1.01);
+  cursor: pointer;
+}
+
+// .odd:hover {
+//   rotate: 0deg;
+// }
+
+.odd:nth-child(odd) {
+  transition: .5s;
+  transform: rotate(1.5deg);
+}
+
+.odd:nth-child(even) {
+  transition: .5s;
+  transform: rotate(-1.5deg);
+}
+
+.odd:hover:nth-child(odd) {
+  transition: .5s;
+  transform: rotate(-1.5deg);
+}
+
+.odd:hover:nth-child(even) {
+  transition: .5s;
+  transform: rotate(1.5deg);
+}
+
+.odd:nth-child(2) {
+  transform: rotate(0deg);
+}
+
+.odd:hover:nth-child(2) {
+  transform: rotate(-1.5deg);
+}
+
+.odd:nth-child(3) {
+  transform: rotate(-1.5deg);
+}
+
+.odd:hover:nth-child(3) {
+  transform: rotate(1.5deg);
+}
+
+.odd:nth-child(6) {
+  transform: rotate(0deg);
+}
+
+.odd:hover:nth-child(6) {
+  transform: rotate(-1.5deg);
+}
+
+.odd:nth-child(7) {
+  transform: rotate(0deg);
+}
+
+.odd:hover:nth-child(7) {
+  transform: rotate(-1.5deg);
 }
 
 .img_container {
@@ -222,10 +346,14 @@ export default {
   justify-content: center;
   overflow: hidden;
 
-  img {
+  picture {
     height: 100%;
     width: 100%;
-    object-fit: cover;
+      img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
   }
 }
 
@@ -306,9 +434,17 @@ h3 {
     height: 200px;
     width: 210px;
     border-radius: 10px;
-
-    img {
-      object-fit: cover;
+    picture {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+      height: 100%;
+      width: 195%;
+      object-fit: fill;
+      }
     }
   }
 }

@@ -39,7 +39,8 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
 
   css: [
-    './styles/_variables'
+    './styles/_variables',
+    './styles/app'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -76,11 +77,10 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
-
-  router: {
-    base: '/oxfam/'
+  /*
+  ** Generate location
+  */
+  generate: {
+    dir: 'dist'
   },
-  static: {
-    prefix: true
-  }
 }

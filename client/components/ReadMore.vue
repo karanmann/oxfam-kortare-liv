@@ -13,10 +13,10 @@
         </p>
       </div>
       <div class="readmore_icons icons-left">
-        <img src="../assets/logos/readmore-icons-left.svg" alt="decorative icons" loading="lazy">
+        <img src="/assets/images/logos/readmore-icons-left.svg" alt="decorative icons">
       </div>
       <div class="readmore_icons icons-right">
-        <img src="../assets/logos/readmore-icons-right.svg" alt="decorative icons" loading="lazy">
+        <img src="/assets/images/logos/readmore-icons-right.svg" alt="decorative icons">
       </div>
     </div>
     <div class="readmore_subsection">
@@ -28,7 +28,9 @@
       </p>
     </div>
     <ReadMoreList />
-    <img src="../assets/logos/oxfam-logo-black.png" alt="oxfam_logo" class="oxfam_logo" loading="lazy">
+    <a href="https://www.oxfam.se/" target="_blank">
+      <img src="assets/images/logos/oxfam-logo-black.png" alt="oxfam_logo" class="oxfam_logo">
+    </a>
     <p class="legal">
       {{ $t('footer_legal') }}
     </p>
@@ -40,7 +42,7 @@ export default {
   name: 'ReadMore',
   data () {
     return {
-      question: String,
+      question: 'Fråga butikspersonalen!',
       interval: null,
       questions: [
         this.$t('landing_question_1_body'),
@@ -53,11 +55,7 @@ export default {
   },
   mounted () {
     this.generateQuestion()
-  },
-  created () {
-    this.interval = setInterval(() => {
-      this.generateQuestion()
-    }, 5000)
+    setInterval(this.generateQuestion, 5000)
   },
   destroyed () {
     clearInterval(this.interval)
@@ -88,6 +86,7 @@ export default {
   line-height: 26px;
   font-size: 22px;
   font-family: $font-prim;
+  margin: 2px 0 4px;
 }
 
 #heading--smaller {
@@ -129,7 +128,7 @@ export default {
   height: 100%;
   justify-content: center;
   align-items: center;
-  background-image: url('../assets/logos/speech-bubble.svg');
+  background-image: url('/assets/images/logos/speech-bubble.svg');
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -154,7 +153,7 @@ export default {
 
 .oxfam_logo {
   width: 163px;
-  margin: 35px auto 45px;
+  margin: 35px auto 28px;
 }
 
 .legal {
@@ -174,6 +173,7 @@ export default {
   .readmore_heading {
     font-size: 30px;
     line-height: 38px;
+    margin: 6px 0 6px;
   }
 
   #heading--smaller {
@@ -185,6 +185,7 @@ export default {
     max-width: 442px;
     font-size: 15px;
     line-height: 20px;
+    margin-bottom: 20px;
   }
 
   .readmore_heading-body--second {
@@ -223,7 +224,7 @@ export default {
   .oxfam_logo {
     width: 253px;
     margin-top: 45px;
-    margin-bottom: 55px;
+    margin-bottom: 38px;
   }
 
   .legal {

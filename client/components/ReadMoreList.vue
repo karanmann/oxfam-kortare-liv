@@ -22,7 +22,7 @@
       <h3 class="readmore_link_header">
         {{ $t('landing_readmore_link_4_header') }}
       </h3>
-      <a class="readmore_link_anchor" :href="$t('landing_readmore_link_4_url1')" target="_blank" rel="Oxfam 1">Läs rapporten om bananer (1)</a><span><a class="readmore_link_anchor" href="https://policy-practice.oxfam.org/resources/ripe-for-change-ending-human-suffering-in-supermarket-supply-chains-620418/" target="_blank"> (2)</a></span>
+      <a class="readmore_link_anchor" :href="$t('landing_readmore_link_4_url1')" target="_blank" rel="Oxfam 1">{{ $t('landing_readmore_link_4_linktext') }}</a>
     </li>
     <li class="readmore_link-group">
       <h3 class="readmore_link_header">
@@ -30,11 +30,17 @@
       </h3>
       <a class="readmore_link_anchor" :href="$t('landing_readmore_link_5_url')" target="_blank" rel="Oxfam 1">{{ $t('landing_readmore_link_5_linktext') }}</a>
     </li>
-    <li class="readmore_lin-group">
+    <li class="readmore_link-group">
       <h3 class="readmore_link_header">
         {{ $t('landing_readmore_link_6_header') }}
       </h3>
       <a class="readmore_link_anchor" :href="$t('landing_readmore_link_6_url')" target="_blank" rel="Oxfam 1">{{ $t('landing_readmore_link_6_linktext') }}</a>
+    </li>
+    <li class="readmore_link-group">
+      <h3 class="readmore_link_header">
+        {{ $t('landing_readmore_link_7_header') }}
+      </h3>
+      <a class="readmore_link_anchor" :href="$t('landing_readmore_link_7_url')" target="_blank" rel="Oxfam 1">{{ $t('landing_readmore_link_7_linktext') }}</a>
     </li>
   </ul>
 </template>

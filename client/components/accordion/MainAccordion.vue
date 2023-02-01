@@ -71,7 +71,7 @@ export default {
   width: 100%
 }
 .accordion_btn {
-width: 95%;
+width: 100%;
 display: flex;
 align-items: center;
 justify-content: space-between;
