@@ -93,3 +93,4 @@ sw.*
 # Google APIs Credentials
 tools/config/credentials.json
 tools/config/token.json
+package-lock.json
