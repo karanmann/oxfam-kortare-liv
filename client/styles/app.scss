@@ -1,0 +1,140 @@
+@use './_variables.scss' as *;
+
+
+// @font-face {
+//   font-family: 'Canela Deck Web';
+//   src: url('~assets/fonts/CanelaDeck-BoldItalic-Web.woff2') format('woff2'),
+//        url('~assets/fonts/CanelaDeck-BoldItalic-Web.woff') format('woff');
+//   font-weight:  700;
+//   font-style:   italic;
+//   font-stretch: normal;
+// }
+
+@font-face {
+  font-family: 'CanelaDeck-Bold-Web';
+  src: url('~assets/fonts/CanelaDeck-Bold-Web.woff2') format('woff2'),
+       url('~assets/fonts/CanelaDeck-Bold-Web.woff') format('woff');
+  font-weight:  700;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'Canela-Thin-Web';
+  src: url('~assets/fonts/CanelaDeck-Thin-Web.woff2') format('woff2'),
+       url('~assets/fonts/CanelaDeck-Thin-Web.woff') format('woff');
+  font-weight:  400;
+  font-style:   italic;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'CanelaDeck-Regular-Web';
+  src: url('~assets/fonts/CanelaDeck-Regular-Web.woff2') format('woff2'),
+       url('~assets/fonts/CanelaDeck-Regular-Web.woff') format('woff');
+  font-weight:  400;
+  font-style:   normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'CanelaDeck-RegularItalic-Web';
+  src: url('~assets/fonts/CanelaDeck-RegularItalic-Web.woff2') format('woff2'),
+       url('~assets/fonts/CanelaDeck-RegularItalic-Web.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+}
+
+
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+$font-prim: "CanelaDeck-Bold-Web", "CanelaDeck-Regular-Web", "Roboto", serif;
+$sec-prim: "CanelaDeck-Regular-Web", "Roboto", serif;
+$thin-font: "Canela-Thin-Web", "Roboto", serif;
+
+
+body {
+  position: relative;
+  background-color: $bg-prim;
+  color: $text-prim;
+  font-family: $font-prim;
+  line-height: 1.5;
+  font-style: normal;
+  font-stretch: normal;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: black;
+  font: inherit;
+}
+
+h1 {
+  font-family: $font-prim;
+  font-size: 36px;
+  line-height: 40px;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: $bold;
+  line-height: 38px;
+}
+
+h3 {
+  font-size: 11px;
+  font-weight: $bold;
+  line-height: 16px;
+}
+
+p {
+  font-size: 15px;
+  font-weight: $regular;
+  line-height: 20px;
+}
+
+span {
+  font-size: 0.8px;
+  font-weight: $regular;
+  line-height: 20px;
+  text-decoration: underline;
+}
+
+a {
+  font-size: 12px;
+  font-weight: $regular;
+  line-height: 14px;
+  color: $text-prim;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// Helper classes
+.text-bold {
+  font-weight: $bold;
+}
+
+.marginY {
+  margin: 8px 0px;
+}

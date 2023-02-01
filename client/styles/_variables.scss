@@ -1,0 +1,48 @@
+/// Fonts ///
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+$font-prim: "CanelaDeck-Bold-Web", "CanelaDeck-Regular-Web", "Roboto", serif;
+$font-sec: "CanelaDeck-Regular-Web", "Roboto", serif;
+$thin-font: "Canela-Thin-Web", "Roboto", serif;
+$font-legal: "CanelaDeck-RegularItalic-Web", "Roboto", serif;
+
+
+//Weight
+$regular: 400;
+$bold: 700;
+
+/// Colors ///
+//Generic
+$black: #171717;
+$white: #efefef;
+
+//Background
+$bg-prim: #F2EBDD;
+
+//Core Colours
+$card-prim: #FBF7E6;
+
+//Text
+$text-prim: #201B1F;
+
+//Vegies
+$tomaten: #C90101;
+$avokadon: #66514C;
+$citronen: #D79500;
+$bananen: #5C8600;
+$grapefrukten: #FF7A21;
+$broccolin: #4A753B;
+$mangon: #ED4E21;
+$melonen: #5D714C;
+$apelsinen:  #F78200;
+
+//Buttons
+$white-translucent: rgba(237, 234, 234, 0.8);
+
+/// Breakpoints ///
+$mobileSmall: 320px;
+$mobile: 420px;
+$tablet: 736px;
+$laptopSmall: 1024px;
+$laptop: 1280px;
+$desktop: 1800px;
