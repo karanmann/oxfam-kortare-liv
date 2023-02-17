@@ -25,10 +25,12 @@ function migrate (auth) {
     {
       spreadsheetId,
       majorDimension: 'COLUMNS',
-      ranges: ['Main!B5:Z'] // Can be multiple sheets
+      ranges: ['MainMultiLanguage!B5:Z'] // Can be multiple sheets
     },
     (err, res) => {
-      if (err) { return console.error('The API returned an error: ' + err) }
+      if (err) {
+        return console.error('The API returned an error: ' + err)
+      }
 
       const sheets = res.data.valueRanges // Array of sheet objects
       const langs = [] // Prepare array of files to write
@@ -55,7 +57,9 @@ function migrate (auth) {
             const langObject = {}
 
             for (let i = 1; i < column.length; i++) {
-              if (ids[i] !== '') { langObject[ids[i]] = column[i] }
+              if (ids[i] !== '') {
+                langObject[ids[i]] = column[i]
+              }
             }
 
             const langFile = {}

@@ -16,13 +16,9 @@ const getClient = (credentialsPath = './config/credentials.json', tokenPath = '.
   loadSecrets(callback)
 }
 
-exports.getClient = getClient;
-
-
-
+exports.getClient = getClient
 
 function loadSecrets (callback) {
-
   // Load client secrets from a local file.
   fs.readFile(
     CREDENTIALS_PATH,
@@ -33,11 +29,11 @@ function loadSecrets (callback) {
           err,
           '\n',
           +'Create a client secret file by following this guide: https://developers.google.com/sheets/api/quickstart/nodejs'
-          )
-        }
-        // Authorize a client with credentials, then call the Google Sheets API.
-        authorize(JSON.parse(content), callback)
+        )
       }
+      // Authorize a client with credentials, then call the Google Sheets API.
+      authorize(JSON.parse(content), callback)
+    }
   )
 }
 

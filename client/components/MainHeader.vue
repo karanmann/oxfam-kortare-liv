@@ -1,5 +1,8 @@
 <template>
   <header>
+    <nuxt-link v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code)">
+      {{ locale.name }}
+    </nuxt-link>
     <h1 class="landing_title">
       {{ $t('landing_header') }}
     </h1>
@@ -12,8 +15,14 @@
   </header>
 </template>
 
-<script setup>
-
+<script>
+export default {
+  computed: {
+    availableLocales () {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -27,6 +36,7 @@ header {
   margin: 0 auto;
   margin-top: 45px;
 }
+
 .landing_title {
   max-width: 358px;
   text-align: center;
@@ -49,6 +59,7 @@ header {
   header {
     margin-top: 55px;
   }
+
   .landing_title {
     max-width: 750px;
     font-size: 70px;
@@ -58,6 +69,7 @@ header {
   .landing_body_mobile {
     display: none;
   }
+
   .landing_body_desktop {
     display: block;
     max-width: 720px;
@@ -67,5 +79,4 @@ header {
     font-family: $font-sec;
   }
 }
-
 </style>
